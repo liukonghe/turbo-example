@@ -1,0 +1,46 @@
+module.exports = {
+  commonRules: {
+    'eslint-comments/require-description': 'off',
+    'import/no-anonymous-default-export': 'off',
+    'import/no-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-named-as-default': 'off',
+    'import/order': [
+      'warn',
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-autofocus': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'no-duplicate-imports': 'off',
+    'no-console': [
+      'warn',
+      {
+        allow: ['error', 'info', 'warn', 'debug', 'group'],
+      },
+    ],
+    'no-shadow': 'off',
+    'prettier/prettier': 'warn',
+    'prefer-named-capture-group': 'off',
+    'unicorn/filename-case': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+  },
+};

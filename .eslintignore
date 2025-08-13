@@ -1,0 +1,13 @@
+build/*
+dist/*
+node_modules/*
+
+*.min.js
+*.min.css
+package.json
+
+config-eslint/*
+*.config.js
+
+# FIXME:
+scripts/*

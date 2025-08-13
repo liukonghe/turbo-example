@@ -1,0 +1,23 @@
+node_modules/
+.pnpm-store/
+
+# build outputs
+build/
+dist/
+.next/
+.turbo/
+coverage/
+
+# local env/certs
+.env*
+.cert/
+qnconfig.json
+qshell/
+
+# editors
+.vscode/
+.idea/
+
+# os files
+.DS_Store
+Thumbs.db
