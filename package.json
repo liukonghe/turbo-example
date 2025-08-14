@@ -18,10 +18,10 @@
     "typescript": "^5.4.5",
     "typescript-plugin-css-modules": "^5.1.0"
   },
-  "packageManager": "pnpm@8.15.9",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8.15 <9"
+    "node": ">=22",
+    "pnpm": ">=10.11.0"
   },
   "pnpm": {
     "overrides": {
