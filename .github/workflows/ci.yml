@@ -1,55 +1,48 @@
-name: CI & Pages
+name: CI & Pages  # 持续集成与 GitHub Pages 部署
 
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
+    branches: [ main ]  # 仅在 main 分支推送时触发部署
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read   # 读取仓库内容
+  pages: write     # 写入 GitHub Pages
+  id-token: write  # OIDC 用于 Pages 部署鉴权
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true  # 避免并发部署冲突
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout  # 拉取代码
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
+      - name: Setup pnpm  # 安装 pnpm@10
         uses: pnpm/action-setup@v2
         with:
           version: 10
 
-      - name: Setup Node.js
+      - name: Setup Node.js  # 配置 Node.js 22，开启 pnpm 缓存
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install dependencies
+      - name: Install dependencies  # 安装依赖
         run: pnpm install
 
-      - name: Build example app
+      - name: Build example app  # 构建示例应用
         run: pnpm -w -C apps/example build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: example-build
-          path: apps/example/build
-
-      - name: Setup Pages
+      - name: Setup Pages  # 准备 GitHub Pages 环境
         uses: actions/configure-pages@v5
 
-      - name: Upload Pages artifact
+      - name: Upload Pages artifact  # 上传 Pages 产物
         uses: actions/upload-pages-artifact@v3
         with:
           path: apps/example/build
@@ -61,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages  # 发布到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
