@@ -18,7 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read  # 仅需读取代码
+      contents: read   # 读取代码
+      pages: write     # 允许在本 job 中配置/启用 Pages
+      id-token: write  # OIDC 鉴权（configure-pages 需要）
     steps:
       - name: Checkout  # 拉取代码
         uses: actions/checkout@v4
