@@ -39,8 +39,10 @@ jobs:
       - name: Build example app  # 构建示例应用
         run: pnpm -w -C apps/example build
 
-      - name: Setup Pages  # 准备 GitHub Pages 环境
+      - name: Setup Pages  # 准备 GitHub Pages 环境（自动启用 Pages）
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Pages artifact  # 上传 Pages 产物
         uses: actions/upload-pages-artifact@v3
